@@ -43,8 +43,7 @@ public class MainSistema {
         System.out.println("Alunos:");
         usuarioRepository.mostraAlunos();
         
-        System.out.println("Média de idade dos alunos:");
-        usuarioRepository.mediaIdadeAlunos();
+        System.out.println("Média de idade dos alunos: "+usuarioRepository.mediaIdadeAlunos());
 
 //        Disciplina disciplina = new Disciplina("Matematica", professor);
 //        disciplina.matricular(aluno);

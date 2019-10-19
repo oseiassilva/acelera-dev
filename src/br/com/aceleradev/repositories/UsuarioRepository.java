@@ -36,14 +36,14 @@ public class UsuarioRepository {
         });
     }
     
-    public void mediaIdadeAlunos() {
+    public double mediaIdadeAlunos() {
     	List<Usuario> usuariosAlunos = usuarios.stream().filter(usuario -> (usuario instanceof Aluno)).collect(Collectors.toList());
     	List<Aluno> alunos = usuariosAlunos.stream().map(usuarioAluno -> (Aluno) usuarioAluno).collect(Collectors.toList());
     	List<LocalDate> datasNascimento = alunos.stream().map(aluno -> aluno.getNascimento()).collect(Collectors.toList()); 
     	List<Integer> idades = datasNascimento.stream().map(dataNascimento -> Period.between(dataNascimento, LocalDate.now()).getYears()).collect(Collectors.toList());
     	Integer soma = idades.stream().mapToInt(Integer::intValue).sum();
     	
-    	System.out.println(soma/idades.size());    	
+    	return soma/idades.size();    	
     }
 
 }
