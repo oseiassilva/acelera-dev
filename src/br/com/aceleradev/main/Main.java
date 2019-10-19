@@ -1,5 +1,8 @@
 package br.com.aceleradev.main;
 
+import java.time.LocalDate;
+import java.time.Month;
+
 import br.com.aceleradev.domain.Aluno;
 
 public class Main {
@@ -21,7 +24,8 @@ public class Main {
         Aluno aluno = new Aluno(
                 "Gustavo",
                 "gus",
-                "123.456.789-12");;
+                "123.456.789-12",
+                LocalDate.of(1990, Month.DECEMBER, 31));;
 
 //        System.out.println(aluno);
 

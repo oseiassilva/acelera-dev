@@ -4,8 +4,11 @@ import br.com.aceleradev.domain.Aluno;
 import br.com.aceleradev.domain.Professor;
 import br.com.aceleradev.domain.Usuario;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UsuarioRepository {
 
@@ -31,6 +34,16 @@ public class UsuarioRepository {
                 System.out.println(usuario);
             }
         });
+    }
+    
+    public void mediaIdadeAlunos() {
+    	List<Usuario> usuariosAlunos = usuarios.stream().filter(usuario -> (usuario instanceof Aluno)).collect(Collectors.toList());
+    	List<Aluno> alunos = usuariosAlunos.stream().map(usuarioAluno -> (Aluno) usuarioAluno).collect(Collectors.toList());
+    	List<LocalDate> datasNascimento = alunos.stream().map(aluno -> aluno.getNascimento()).collect(Collectors.toList()); 
+    	List<Integer> idades = datasNascimento.stream().map(dataNascimento -> Period.between(dataNascimento, LocalDate.now()).getYears()).collect(Collectors.toList());
+    	Integer soma = idades.stream().mapToInt(Integer::intValue).sum();
+    	
+    	System.out.println(soma/idades.size());    	
     }
 
 }

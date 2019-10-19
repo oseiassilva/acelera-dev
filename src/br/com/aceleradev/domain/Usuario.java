@@ -4,19 +4,31 @@ import br.com.aceleradev.exceptions.LoginInvalidoException;
 
 import static br.com.aceleradev.utils.MensagemException.LOGIN_MENOR_DE_TRES_CARACTERES;
 
+import java.time.LocalDate;
+
 public class Usuario {
 
     private String nome;
     private String login;
     private String cpf;
+    private LocalDate nascimento;
 
-    public Usuario(String nome, String login, String cpf) {
+    public Usuario(String nome, String login, String cpf, LocalDate nascimento) {
         this.nome = nome;
         setLogin(login);
         this.cpf = cpf;
+        this.nascimento = nascimento;
     }
 
-    public String getNome() {
+    public LocalDate getNascimento() {
+		return nascimento;
+	}
+
+	public void setNascimento(LocalDate nascimento) {
+		this.nascimento = nascimento;
+	}
+
+	public String getNome() {
         return nome;
     }
 
@@ -53,7 +65,8 @@ public class Usuario {
     public String toString() {
         return "nome: " + this.nome
                 + "\nlogin: " + this.login
-                + "\ncpf: " + this.cpf + "\n";
+                + "\ncpf: " + this.cpf
+                + "\ndata nascimento: " + this.nascimento + "\n";
     }
-
+    
 }

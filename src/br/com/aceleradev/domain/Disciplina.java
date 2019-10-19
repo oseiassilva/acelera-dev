@@ -35,7 +35,8 @@ public class Disciplina {
 //
 //        alunos.forEach(aluno -> System.out.println(aluno));
 //
-    }
+    }   
+
 
     @Override
     public String toString() {
@@ -45,4 +46,5 @@ public class Disciplina {
                 ", professor=" + professor +
                 "\n";
     }
+
 }
